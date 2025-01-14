@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MRE_ExpanderCV.MainPage">
+
+    <Grid RowDefinitions="*,3*" ColumnDefinitions="*">
+        <Border Grid.Row="0" BackgroundColor="Azure">
+            <Label Text="LOREM IPSUM" FontSize="48" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Border>
+        <Border BackgroundColor="Gray" Padding="5" Grid.Row="1">
+            <CollectionView x:Name="CV">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="x:Int32">
+                        <Border BackgroundColor="LightPink" Padding="10">
+                            <toolkit:Expander ExpandedChanged="Expander_ExpandedChanged">
+                                <toolkit:Expander.Header>
+                                    <Label FontSize="Large" Text="{Binding .}" BackgroundColor="LightYellow"/>
+                                </toolkit:Expander.Header>
+                                <Label FontSize="Medium" BackgroundColor="LightBlue" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
+                            </toolkit:Expander>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+    </Grid>
+
+</ContentPage>
