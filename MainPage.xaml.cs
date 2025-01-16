@@ -9,7 +9,7 @@ namespace MRE_ExpanderCV
         {
             InitializeComponent();
 
-            CV.ItemsSource = Enumerable.Range(1,25);
+            BindableLayout.SetItemsSource(CV, Enumerable.Range(1,25));
         }
 
         private void Expander_ExpandedChanged(object sender, CommunityToolkit.Maui.Core.ExpandedChangedEventArgs e)
@@ -27,7 +27,7 @@ namespace MRE_ExpanderCV
                 }
 
                 int position = expanders.IndexOf(ex);
-                CV.ScrollTo(position, position: ScrollToPosition.Start);
+                SV.ScrollToAsync(ex, ScrollToPosition.Start, false);
 
             }
         }
